@@ -1,0 +1,19 @@
+[Unit]
+Description=csirtg-ufw service
+
+[Service]
+Type=simple
+User=root
+Group=root
+PIDFile=/run/csirtg-ufw.pid
+ExecStart=/usr/local/bin/csirtg-ufw --client csirtg --feed "{{ CSIRTG_UFW_FEED }}" --provider "{{ CSIRTG_PROVIDER }}" --file "{{ UFW_LOG_FILE }}"
+KillMode=process
+Restart=on-failure
+KillSignal=SIGINT
+TimeoutStopSec=5
+PrivateTmp=true
+
+EnvironmentFile=-/etc/csirtg-cef.env
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+# CSIRTG auth info
+CSIRTG_TOKEN: my_csirtg_token
+CSIRTG_USER: my_csirtg_user
+CSIRTG_PROVIDER: my_csirtg_provider
+
+# CSIRTG feed info
+CSIRTG_SSH_FEED: ssh-scanning
+CSIRTG_UFW_FEED: darknet
+
+# SSH production port (used for management access)
+sshd_prod_port: 2222
+
+# UFW log location
+UFW_LOG_FILE: /var/log/ufw.log

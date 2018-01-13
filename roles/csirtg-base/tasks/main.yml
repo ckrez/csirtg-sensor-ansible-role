@@ -1,0 +1,5 @@
+---
+# tasks file for csirtg-base
+
+- import_tasks: packages.yml
+  tags: packages

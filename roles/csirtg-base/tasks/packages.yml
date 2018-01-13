@@ -1,0 +1,14 @@
+
+- name: Install pip
+  package:
+    name: python-pip
+    state: latest
+
+- name: Install csirtg python modules
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - pip
+    - csirtg-smrt
+    - csirtgsdk

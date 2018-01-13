@@ -1,0 +1,17 @@
+---
+# tasks file for csirtg-ssh-logger
+
+- import_tasks: packages.yml
+  tags: packages
+
+- import_tasks: ufw.yml
+  tags: ufw
+
+- import_tasks: sshd.yml
+  tags: sshd
+
+- import_tasks: docker.yml
+  tags: docker
+
+- import_tasks: csirtg-cef.yml
+  tags: csirtg-cef

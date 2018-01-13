@@ -1,0 +1,12 @@
+
+
+- name: Pulling container from dockerhub
+  docker_image:
+    name: justinazoff/ssh-auth-logger
+
+- name: Start ssh-logger container
+  docker_container:
+    name: sshlogger
+    image: justinazoff/ssh-auth-logger
+    ports: 0.0.0.0:22:22/tcp
+    restart_policy: always

@@ -1,0 +1,9 @@
+
+---
+- hosts: sensors
+  become: true
+  become_method: sudo
+  roles:
+     - csirtg-base
+     - csirtg-ssh-logger
+     - csirtg-ufw

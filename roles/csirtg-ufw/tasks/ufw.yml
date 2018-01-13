@@ -1,0 +1,13 @@
+
+
+- name: Add tcp/{{ sshd_prod_port }} to the firewall
+  ufw:
+    rule: allow
+    to_port: "{{ sshd_prod_port }}"
+    proto: tcp
+
+- name: Start the firewall
+  ufw:
+    state: enabled
+    policy: deny
+    logging: on

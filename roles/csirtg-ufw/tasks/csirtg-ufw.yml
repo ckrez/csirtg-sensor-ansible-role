@@ -1,0 +1,22 @@
+
+- name: Create systemd service
+  template:
+    src: templates/csirtg-ufw.service.j2
+    dest: /etc/systemd/system/csirtg-ufw.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create environment file
+  template:
+    src: templates/csirtg-cef.env.j2
+    dest: /etc/csirtg.env
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Start the csirtg-ufw service
+  systemd:
+    state: restarted
+    name: csirtg-ufw
+    daemon_reload: yes

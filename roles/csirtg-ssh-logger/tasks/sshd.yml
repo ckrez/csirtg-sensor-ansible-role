@@ -1,0 +1,16 @@
+
+- name: Setup alternate SSH port
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^Port"
+    line: "Port {{ sshd_prod_port }}"
+    backup: yes
+
+- name: Restart sshd
+  service:
+    name: sshd
+    state: restarted
+
+- name: Notify ansible of sshd port change
+  set_fact:
+    ansible_ssh_port: "{{ sshd_prod_port }}"

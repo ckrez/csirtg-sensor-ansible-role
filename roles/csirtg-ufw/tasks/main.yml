@@ -1,0 +1,8 @@
+---
+# tasks file for csirtg-ufw
+
+- import_tasks: ufw.yml
+  tags: ufw
+
+- import_tasks: csirtg-ufw.yml
+  tags: csirtg-ufw

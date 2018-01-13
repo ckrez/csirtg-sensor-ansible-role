@@ -1,0 +1,19 @@
+[Unit]
+Description=csirtg-docker-csirtg service
+
+[Service]
+Type=simple
+User=root
+Group=root
+PIDFile=/run/csirtg-cef_csirtg.pid
+ExecStart=/usr/local/bin/csirtg-cef --client csirtg --tail-docker sshlogger --feed "{{ CSIRTG_SSH_FEED }}" --provider "{{ CSIRTG_PROVIDER }}" --tags ssh,scanner
+KillMode=process
+Restart=on-failure
+KillSignal=SIGINT
+TimeoutStopSec=5
+PrivateTmp=true
+
+EnvironmentFile=-/etc/csirtg-cef.env
+
+[Install]
+WantedBy=multi-user.target
